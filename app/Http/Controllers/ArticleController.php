@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::paginate();
+        $articles = Article::paginate(2); // количество статей на странице. По умолчанию 15
         // compact('articles') => [ 'articles' => $articles ]
         return view('article.index', compact('articles'));
     }
