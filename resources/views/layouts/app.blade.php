@@ -13,6 +13,9 @@
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>
+                @if (Session::has('flash_success'))
+                    <div class="alert alert-success">{{ Session::get('flash_success') }}</div>
+                @endif
                 @yield('content')
             </div>
         </div>
