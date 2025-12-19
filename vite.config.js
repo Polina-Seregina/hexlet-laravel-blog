@@ -10,4 +10,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    build: {
+        rollupOptions: {
+            external: ['@rails/ujs'], // Добавьте сюда
+        },
+    },
 });
