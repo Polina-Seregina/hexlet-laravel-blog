@@ -3,12 +3,12 @@
 @section('content')
 <h1> Список статей </h1>
 @foreach ($articles as $article)
-    <h2><a href="{{ route('articles.show',['id' => $article->id]) }}">{{ $article->name }}</a></h2>
+    <h2><a href="{{ route('articles.show',['article' => $article]) }}">{{ $article->name }}</a></h2>
     {{-- Str::limit – функция-хелпер, которая обрезает текст до указанной длины --}}
     {{-- Используется для очень длинных текстов, которые нужно сократить --}}
     <div> {{ Str::limit($article->body, 200) }} </div>
-    <div> <a href="{{ route('article.edit', ['id' => $article->id]) }}"> Редактировать </a> </div>
-    <div> <form action="{{ route('articles.destroy', ['id' => $article->id]) }}" method="POST">
+    <div> <a href="{{ route('articles.edit', ['article' => $article]) }}"> Редактировать </a> </div>
+    <div> <form action="{{ route('articles.destroy', ['article' => $article]) }}" method="POST">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-danger">Удалить</button>
